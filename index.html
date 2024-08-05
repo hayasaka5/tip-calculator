@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/styles.css">
+    <title>Tip Calculator</title>
+</head>
+<body>
+    <div class="container">
+        <div class="calculator">
+
+        <form >
+        <div class="input_display">
+            <label for="">Bill</label>
+            <input type="text" placeholder="0" id="bill" >
+     
+            <label for="">Select Tip %</label>
+            <div class="buttons">
+                <div>
+                <input type="button" value="5%" onclick="getPercent(0.05)">
+                <input type="button" value="10%"onclick="getPercent(0.1)">
+                <input type="button" value="15%"onclick="getPercent(0.15)">
+            </div>
+            <div>
+                <input type="button" value="20%"onclick="getPercent(0.2)">
+                <input type="button" value="25%"onclick="getPercent(0.25)">
+                <input type="button" value="50%"onclick="getPercent(0.5)">
+            </div>
+            </div>
+            <label for="">Amount Of People</label>
+            <input type="text" name="" id="amountppl"value='1'>
+        </form>
+        </div>
+        <div class="output_display">
+            <form>
+            
+                <div class="result1">
+                    <label for="">Tip Amount <p>/person</p></label>
+                   
+                <input type="text" id="1person" value="0" disabled>
+            </div>
+            <div class="result2">
+                <label for="">Tip Amount <p>/total</p></label>
+                <input type="text" id="total" value="0" disabled>
+            </div >
+        </form>
+            <div class="reset_button">
+            <input type="button" value="RESET" onclick="reset()">
+        </div>
+           
+        </div>
+    </div>
+    </div>
+    <script>
+        function getPercent(percent) { 
+            var billAmount = document.getElementById('bill').value;
+    var tipAmount = billAmount * percent;
+    var amountppl = document.getElementById('amountppl').value;
+    document.getElementById('total').value = tipAmount.toFixed(2);
+    var amountfor1=tipAmount/amountppl;
+    document.getElementById('1person').value=amountfor1.toFixed(2);
+        }
+        function reset(){
+            document.getElementById('amountppl').value=1;
+            document.getElementById('bill').value=0;
+            document.getElementById('total').value=0;
+            document.getElementById('1person').value=0;
+        }
+    </script>
+</body>
+</html>
